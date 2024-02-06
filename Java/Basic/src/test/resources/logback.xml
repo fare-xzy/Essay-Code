@@ -1,0 +1,18 @@
+<configuration>
+    <property name="BJCA_FILE_LOG_PATTERN"
+              value="${BJCA_FILE_LOG_PATTERN:-%date{ISO8601} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } [%t] [%X{taskId}] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%rEx}}"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度,%msg：日志消息，%n是换行符-->
+            <pattern>${BJCA_FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    　　　
+    <root level="INFO">
+        　　　　　　
+        <appender-ref ref="STDOUT"/>
+        　　　
+    </root>
+</configuration>
